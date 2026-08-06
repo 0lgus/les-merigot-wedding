@@ -1,3 +1,3 @@
 window.WEDDING_CONFIG = Object.freeze({
-    API_URL: "https://script.google.com/macros/s/AKfycbwG0izmgpim6gg-SX3Ukw_ey96AwEr1m5WoeOrDn7A5JQTmNpAU5VSy98wD1ngkaQuWvA/exec"
+    API_URL: "https://script.google.com/macros/s/AKfycbwMSkGV56bXpmeA-rlJwzj3dN5paTxf4NYk-UTDIlQtoWQ3b3VKoX_oM6pDb61c8p-xtQ/exec"
 });
