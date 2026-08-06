@@ -13,6 +13,8 @@ if (!API_URL || !API_URL.startsWith("https://script.google.com/")) {
 
     results.textContent =
         "The seat finder is temporarily unavailable. Please try again later.";
+
+    searchBox.disabled = true;
 }
 
 searchBox.addEventListener("input", function () {
@@ -21,13 +23,14 @@ searchBox.addEventListener("input", function () {
     const query = normalizeInput(this.value);
 
     if (query.length < 2) {
+        cancelActiveRequest();
         results.replaceChildren();
         return;
     }
 
     searchTimer = setTimeout(() => {
         searchGuests(query);
-    }, 350);
+    }, 250);
 });
 
 async function searchGuests(query) {
@@ -35,10 +38,7 @@ async function searchGuests(query) {
         return;
     }
 
-    if (activeRequest) {
-        activeRequest.abort();
-    }
-
+    cancelActiveRequest();
     activeRequest = new AbortController();
 
     showMessage("Searching…");
@@ -77,6 +77,8 @@ async function searchGuests(query) {
             "We couldn't complete the search. Please try again.",
             true
         );
+    } finally {
+        activeRequest = null;
     }
 }
 
@@ -89,7 +91,7 @@ function displaySearchResults(guests) {
     }
 
     guests.forEach((guest) => {
-        if (!guest || typeof guest.name !== "string") {
+        if (!isValidGuestResult(guest)) {
             return;
         }
 
@@ -104,58 +106,21 @@ function displaySearchResults(guests) {
         icon.setAttribute("aria-hidden", "true");
 
         const name = document.createElement("span");
-
-        // textContent prevents HTML injection.
         name.textContent = guest.name;
 
         button.append(icon, name);
 
         button.addEventListener("click", () => {
-            loadGuest(guest.name);
+            displayGuestDetails({
+                guest: guest.name,
+                table: guest.table,
+                seat: guest.seat,
+                meal: guest.meal
+            });
         });
 
         results.appendChild(button);
     });
-}
-
-async function loadGuest(guestName) {
-    if (!API_URL || typeof guestName !== "string") {
-        return;
-    }
-
-    showMessage("Loading your seating information…");
-
-    try {
-        const url = new URL(API_URL);
-
-        url.searchParams.set("action", "guest");
-        url.searchParams.set("name", guestName);
-
-        const response = await fetch(url.toString(), {
-            method: "GET",
-            cache: "no-store"
-        });
-
-        if (!response.ok) {
-            throw new Error(`API returned HTTP ${response.status}`);
-        }
-
-        const guest = await response.json();
-
-        if (!guest.success) {
-            showMessage("Guest details could not be found.", true);
-            return;
-        }
-
-        displayGuestDetails(guest);
-    } catch (error) {
-        console.error("Guest lookup failed:", error);
-
-        showMessage(
-            "We couldn't load the seating information. Please try again.",
-            true
-        );
-    }
 }
 
 function displayGuestDetails(guest) {
@@ -173,15 +138,18 @@ function displayGuestDetails(guest) {
 
     const table = document.createElement("p");
     table.className = "mb-2";
-    table.textContent = `Table: ${guest.table || "To be confirmed"}`;
+    table.textContent =
+        `Table: ${displayValue(guest.table, "To be confirmed")}`;
 
     const seat = document.createElement("p");
     seat.className = "mb-2";
-    seat.textContent = `Seat: ${guest.seat || "To be confirmed"}`;
+    seat.textContent =
+        `Seat: ${displayValue(guest.seat, "To be confirmed")}`;
 
     const meal = document.createElement("p");
     meal.className = "mb-4";
-    meal.textContent = `Main course: ${guest.meal || "Not specified"}`;
+    meal.textContent =
+        `Main course: ${displayValue(guest.meal, "Not specified")}`;
 
     const searchAgainButton = document.createElement("button");
     searchAgainButton.type = "button";
@@ -203,9 +171,17 @@ function displayGuestDetails(guest) {
 }
 
 function resetSearch() {
+    cancelActiveRequest();
     searchBox.value = "";
     results.replaceChildren();
     searchBox.focus();
+}
+
+function cancelActiveRequest() {
+    if (activeRequest) {
+        activeRequest.abort();
+        activeRequest = null;
+    }
 }
 
 function showMessage(message, isError = false) {
@@ -227,4 +203,17 @@ function normalizeInput(value) {
         .trim()
         .replace(/\s+/g, " ")
         .slice(0, 80);
+}
+
+function isValidGuestResult(guest) {
+    return Boolean(
+        guest &&
+        typeof guest.name === "string" &&
+        guest.name.trim()
+    );
+}
+
+function displayValue(value, fallback) {
+    const normalized = String(value ?? "").trim();
+    return normalized || fallback;
 }
