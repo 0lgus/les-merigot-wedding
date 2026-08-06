@@ -1,57 +1,279 @@
-body{
-
-    background:#f8f6f2;
-
-    font-family:Arial, Helvetica, sans-serif;
-
+:root {
+    --ivory: #f8f6f1;
+    --warm-white: #fffdf9;
+    --sage: #78866b;
+    --sage-dark: #59654f;
+    --sage-light: #e7ebe2;
+    --gold: #b79a62;
+    --text-dark: #34382f;
+    --text-muted: #70766b;
+    --border: rgba(89, 101, 79, 0.14);
+    --shadow: 0 12px 35px rgba(52, 56, 47, 0.08);
 }
 
-h1{
-
-    color:#556B2F;
-
-    font-weight:bold;
-
+* {
+    box-sizing: border-box;
 }
 
-.feature-card{
-
-    border:none;
-
-    border-radius:20px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-    transition:.25s;
-
+body {
+    min-height: 100vh;
+    margin: 0;
+    background:
+        radial-gradient(
+            circle at top,
+            #ffffff 0,
+            var(--ivory) 48%,
+            #f1eee6 100%
+        );
+    color: var(--text-dark);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.feature-card:hover{
-
-    transform:translateY(-5px);
-
+a {
+    color: inherit;
 }
 
-.feature-icon{
-
-    font-size:60px;
-
-    color:#7a8d54;
-
-    margin-bottom:20px;
-
+.wedding-hub {
+    min-height: 100vh;
+    padding: 46px 0 30px;
 }
 
-.btn-success{
-
-    background:#7a8d54;
-
-    border:none;
-
+.wedding-header {
+    width: min(90%, 680px);
+    margin: 0 auto 34px;
 }
 
-.btn-success:hover{
+.wedding-date {
+    margin-bottom: 8px;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+}
 
-    background:#667747;
+.wedding-title,
+h1 {
+    margin-bottom: 10px;
+    color: var(--sage-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 500;
+}
 
+.wedding-title {
+    font-size: clamp(2.7rem, 9vw, 4.8rem);
+    line-height: 1;
+}
+
+.wedding-subtitle {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.wedding-menu {
+    width: min(100%, 920px);
+}
+
+.feature-link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.feature-card {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    min-height: 126px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: rgba(255, 253, 249, 0.92);
+    box-shadow: var(--shadow);
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease;
+}
+
+.feature-link:not(.feature-disabled):hover .feature-card,
+.feature-link:not(.feature-disabled):focus-visible .feature-card {
+    transform: translateY(-3px);
+    border-color: rgba(183, 154, 98, 0.42);
+    box-shadow: 0 16px 42px rgba(52, 56, 47, 0.12);
+}
+
+.feature-link:focus-visible {
+    border-radius: 22px;
+    outline: 3px solid rgba(120, 134, 107, 0.35);
+    outline-offset: 3px;
+}
+
+.feature-disabled {
+    cursor: default;
+}
+
+.feature-disabled .feature-card {
+    opacity: 0.78;
+}
+
+.feature-icon-wrapper {
+    display: grid;
+    flex: 0 0 54px;
+    width: 54px;
+    height: 54px;
+    margin-right: 17px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    font-size: 1.45rem;
+}
+
+.feature-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.feature-content h2 {
+    margin: 0 0 5px;
+    color: var(--text-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.feature-content p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.feature-arrow {
+    margin-left: 15px;
+    color: var(--sage);
+    font-size: 1.05rem;
+}
+
+.coming-soon {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.wedding-footer {
+    padding: 38px 20px 0;
+    color: var(--text-muted);
+}
+
+.wedding-footer p {
+    margin-bottom: 3px;
+    color: var(--sage-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.1rem;
+}
+
+.wedding-footer span {
+    font-size: 0.82rem;
+}
+
+/* Shared form and seat-finder styling */
+
+.card {
+    border-color: var(--border);
+    border-radius: 20px;
+}
+
+.form-control {
+    border-color: rgba(89, 101, 79, 0.22);
+    border-radius: 13px;
+}
+
+.form-control:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 0.2rem rgba(120, 134, 107, 0.16);
+}
+
+.list-group-item {
+    border-color: var(--border);
+}
+
+.list-group-item-action:hover,
+.list-group-item-action:focus {
+    background: var(--sage-light);
+}
+
+.btn-success {
+    border-color: var(--sage);
+    background: var(--sage);
+}
+
+.btn-success:hover,
+.btn-success:focus {
+    border-color: var(--sage-dark);
+    background: var(--sage-dark);
+}
+
+.btn-outline-success {
+    border-color: var(--sage);
+    color: var(--sage-dark);
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus {
+    border-color: var(--sage);
+    background: var(--sage);
+    color: white;
+}
+
+@media (max-width: 575.98px) {
+    .wedding-hub {
+        padding-top: 34px;
+    }
+
+    .wedding-header {
+        margin-bottom: 27px;
+    }
+
+    .feature-card {
+        min-height: 116px;
+        padding: 18px;
+        border-radius: 19px;
+    }
+
+    .feature-icon-wrapper {
+        flex-basis: 48px;
+        width: 48px;
+        height: 48px;
+        margin-right: 14px;
+        font-size: 1.25rem;
+    }
+
+    .feature-content h2 {
+        font-size: 1.16rem;
+    }
+
+    .feature-content p {
+        font-size: 0.84rem;
+    }
+
+    .feature-arrow {
+        margin-left: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
 }
