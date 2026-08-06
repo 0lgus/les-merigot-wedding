@@ -15,6 +15,10 @@
     box-sizing: border-box;
 }
 
+html {
+    min-height: 100%;
+}
+
 body {
     min-height: 100vh;
     margin: 0;
@@ -90,7 +94,7 @@ h1 {
     padding: 22px;
     border: 1px solid var(--border);
     border-radius: 22px;
-    background: rgba(255, 253, 249, 0.92);
+    background: rgba(255, 253, 249, 0.94);
     box-shadow: var(--shadow);
     transition:
         transform 180ms ease,
@@ -113,10 +117,11 @@ h1 {
 
 .feature-disabled {
     cursor: default;
+    pointer-events: none;
 }
 
 .feature-disabled .feature-card {
-    opacity: 0.78;
+    opacity: 0.72;
 }
 
 .feature-icon-wrapper {
@@ -184,7 +189,7 @@ h1 {
     font-size: 0.82rem;
 }
 
-/* Shared form and seat-finder styling */
+/* Seat finder */
 
 .card {
     border-color: var(--border);
@@ -230,7 +235,7 @@ h1 {
 .btn-outline-success:focus {
     border-color: var(--sage);
     background: var(--sage);
-    color: white;
+    color: #ffffff;
 }
 
 @media (max-width: 575.98px) {

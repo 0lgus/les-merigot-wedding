@@ -5,17 +5,13 @@ const API_URL = window.WEDDING_CONFIG?.API_URL;
 const weddingName = document.getElementById("weddingName");
 const weddingDate = document.getElementById("weddingDate");
 
-const weddingWebsiteLink =
-    document.getElementById("weddingWebsiteLink");
+const photoUploadLink = document.getElementById("photoUploadLink");
+const weddingWebsiteLink = document.getElementById("weddingWebsiteLink");
+const whatsappGroupLink = document.getElementById("whatsappGroupLink");
 
-const whatsappGroupLink =
-    document.getElementById("whatsappGroupLink");
-
-const websiteStatus =
-    document.getElementById("websiteStatus");
-
-const whatsappStatus =
-    document.getElementById("whatsappStatus");
+const photoStatus = document.getElementById("photoStatus");
+const websiteStatus = document.getElementById("websiteStatus");
+const whatsappStatus = document.getElementById("whatsappStatus");
 
 document.addEventListener("DOMContentLoaded", loadSettings);
 
@@ -36,9 +32,7 @@ async function loadSettings() {
         });
 
         if (!response.ok) {
-            throw new Error(
-                `Settings API returned HTTP ${response.status}`
-            );
+            throw new Error(`Settings API returned HTTP ${response.status}`);
         }
 
         const data = await response.json();
@@ -71,6 +65,14 @@ function applySettings(settings) {
     if (date) {
         weddingDate.textContent = date;
     }
+
+    configureExternalLink({
+        element: photoUploadLink,
+        statusElement: photoStatus,
+        rawUrl: settings.photo_url,
+        validator: isValidHttpsUrl,
+        unavailableText: "Coming soon"
+    });
 
     configureExternalLink({
         element: weddingWebsiteLink,
@@ -110,7 +112,9 @@ function configureExternalLink({
     element.classList.remove("feature-disabled");
     element.removeAttribute("aria-disabled");
 
-    statusElement.remove();
+    if (statusElement) {
+        statusElement.remove();
+    }
 }
 
 function disableLink(element, statusElement, message) {
@@ -118,10 +122,18 @@ function disableLink(element, statusElement, message) {
     element.classList.add("feature-disabled");
     element.setAttribute("aria-disabled", "true");
 
-    statusElement.textContent = message;
+    if (statusElement) {
+        statusElement.textContent = message;
+    }
 }
 
 function showUnavailableState() {
+    disableLink(
+        photoUploadLink,
+        photoStatus,
+        "Coming soon"
+    );
+
     disableLink(
         weddingWebsiteLink,
         websiteStatus,
