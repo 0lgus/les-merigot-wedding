@@ -1,4 +1,4 @@
-const API_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+const API_URL = "https://script.google.com/macros/s/AKfycbwMSkGV56bXpmeA-rlJwzj3dN5paTxf4NYk-UTDIlQtoWQ3b3VKoX_oM6pDb61c8p-xtQ/exec";
 
 const searchBox = document.getElementById("guestSearch");
 const results = document.getElementById("results");
@@ -27,51 +27,84 @@ searchBox.addEventListener("input", function () {
 
 });
 
-async function search(query){
+async function search(query) {
 
     results.innerHTML =
-        '<div class="text-center p-3">Searching...</div>';
+        '<div class="p-3 text-center">Searching...</div>';
 
-    // TEMPORARY:
-    // We'll replace this with the real API after updating Apps Script.
-
-    const demoGuests = [
-
-        "Olga Chernova",
-        "Benjamin Merigot",
-        "Emma Smith",
-        "Olivia Brown",
-        "John Smith"
-
-    ];
-
-    const matches = demoGuests.filter(name =>
-        name.toLowerCase().includes(query.toLowerCase())
+    const response = await fetch(
+        `${API_URL}?action=search&q=${encodeURIComponent(query)}`
     );
+
+    const guests = await response.json();
 
     results.innerHTML = "";
 
-    if(matches.length===0){
+    if (guests.length === 0) {
 
         results.innerHTML =
-            '<div class="text-muted p-3">No guests found.</div>';
+            '<div class="p-3 text-muted">No guests found.</div>';
 
         return;
 
     }
 
-    matches.forEach(name=>{
+    guests.forEach(g => {
 
-        results.innerHTML +=
+        const btn = document.createElement("button");
 
-        `<button class="list-group-item list-group-item-action">
+        btn.className =
+            "list-group-item list-group-item-action";
 
-            <i class="bi bi-person-circle"></i>
+        btn.innerHTML =
+            `<i class="bi bi-person-circle"></i> ${escapeHtml(g.name)}`;
 
-            ${name}
+        btn.onclick = () => loadGuest(g.name);
 
-        </button>`;
+        results.appendChild(btn);
 
     });
+
+}
+
+function escapeHtml(text) {
+
+    const div = document.createElement("div");
+
+    div.innerText = text;
+
+    return div.innerHTML;
+
+}
+
+async function loadGuest(name){
+
+    const response = await fetch(
+
+        `${API_URL}?action=guest&name=${encodeURIComponent(name)}`
+
+    );
+
+    const guest = await response.json();
+
+    if(!guest.success){
+
+        alert("Guest not found.");
+
+        return;
+
+    }
+
+    alert(
+
+`Guest: ${guest.guest}
+
+Table: ${guest.table}
+
+Seat: ${guest.seat}
+
+Meal: ${guest.meal}`
+
+    );
 
 }
