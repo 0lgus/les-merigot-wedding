@@ -1,0 +1,57 @@
+body{
+
+    background:#f8f6f2;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+h1{
+
+    color:#556B2F;
+
+    font-weight:bold;
+
+}
+
+.feature-card{
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.25s;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.feature-icon{
+
+    font-size:60px;
+
+    color:#7a8d54;
+
+    margin-bottom:20px;
+
+}
+
+.btn-success{
+
+    background:#7a8d54;
+
+    border:none;
+
+}
+
+.btn-success:hover{
+
+    background:#667747;
+
+}
