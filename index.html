@@ -34,11 +34,17 @@
 
     <header class="wedding-header text-center">
 
-        <p class="wedding-date">
+        <p
+            id="weddingDate"
+            class="wedding-date"
+        >
             05 September 2026
         </p>
 
-        <h1 class="wedding-title">
+        <h1
+            id="weddingName"
+            class="wedding-title"
+        >
             Les Merigot
         </h1>
 
@@ -99,6 +105,7 @@
                     href="#"
                     class="feature-link feature-disabled"
                     aria-label="Share wedding photos, coming soon"
+                    aria-disabled="true"
                 >
 
                     <article class="feature-card">
@@ -138,30 +145,35 @@
             <div class="col-12 col-md-6">
 
                 <a
+                    id="weddingWebsiteLink"
                     href="#"
                     class="feature-link feature-disabled"
-                    aria-label="Wedding programme, coming soon"
+                    aria-label="Open our wedding website"
+                    aria-disabled="true"
                 >
 
                     <article class="feature-card">
 
                         <div class="feature-icon-wrapper">
                             <i
-                                class="bi bi-calendar-heart"
+                                class="bi bi-globe"
                                 aria-hidden="true"
                             ></i>
                         </div>
 
                         <div class="feature-content">
 
-                            <h2>Wedding Programme</h2>
+                            <h2>Wedding Website</h2>
 
                             <p>
-                                View the schedule and wedding information.
+                                Programme, venue, FAQ and honeymoon fund.
                             </p>
 
-                            <span class="coming-soon">
-                                Coming soon
+                            <span
+                                id="websiteStatus"
+                                class="coming-soon"
+                            >
+                                Loading
                             </span>
 
                         </div>
@@ -180,9 +192,11 @@
             <div class="col-12 col-md-6">
 
                 <a
+                    id="whatsappGroupLink"
                     href="#"
                     class="feature-link feature-disabled"
-                    aria-label="WhatsApp group, coming soon"
+                    aria-label="Join our WhatsApp group"
+                    aria-disabled="true"
                 >
 
                     <article class="feature-card">
@@ -202,50 +216,11 @@
                                 Join the group for news and coordination.
                             </p>
 
-                            <span class="coming-soon">
-                                Coming soon
-                            </span>
-
-                        </div>
-
-                        <i
-                            class="bi bi-chevron-right feature-arrow"
-                            aria-hidden="true"
-                        ></i>
-
-                    </article>
-
-                </a>
-
-            </div>
-
-            <div class="col-12 col-md-6">
-
-                <a
-                    href="#"
-                    class="feature-link feature-disabled"
-                    aria-label="Useful contacts, coming soon"
-                >
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon-wrapper">
-                            <i
-                                class="bi bi-telephone"
-                                aria-hidden="true"
-                            ></i>
-                        </div>
-
-                        <div class="feature-content">
-
-                            <h2>Useful Contacts</h2>
-
-                            <p>
-                                Important contacts, venue and directions.
-                            </p>
-
-                            <span class="coming-soon">
-                                Coming soon
+                            <span
+                                id="whatsappStatus"
+                                class="coming-soon"
+                            >
+                                Loading
                             </span>
 
                         </div>
@@ -279,6 +254,7 @@
 
 </main>
 
+<script src="config.js"></script>
 <script src="app.js"></script>
 
 </body>
