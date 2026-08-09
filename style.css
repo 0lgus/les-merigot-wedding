@@ -1,14 +1,18 @@
 :root {
-    --ivory: #f8f6f1;
-    --warm-white: #fffdf9;
-    --sage: #78866b;
-    --sage-dark: #59654f;
-    --sage-light: #e7ebe2;
-    --gold: #b79a62;
-    --text-dark: #34382f;
-    --text-muted: #70766b;
-    --border: rgba(89, 101, 79, 0.14);
-    --shadow: 0 12px 35px rgba(52, 56, 47, 0.08);
+    --background: #f4f3f1;
+    --surface: rgba(250, 249, 247, 0.88);
+
+    --lavender: #8d79a0;
+    --lavender-dark: #746386;
+
+    --botanical: #68705a;
+    --botanical-soft: #dfe1da;
+
+    --text-dark: #30302f;
+    --text-muted: #74716f;
+
+    --border: rgba(116, 99, 134, 0.18);
+    --shadow: 0 12px 35px rgba(48, 48, 47, 0.08);
 }
 
 * {
@@ -22,15 +26,27 @@ html {
 body {
     min-height: 100vh;
     margin: 0;
-    background:
-        radial-gradient(
-            circle at top,
-            #ffffff 0,
-            var(--ivory) 48%,
-            #f1eee6 100%
-        );
+
+    background-color: var(--background);
+
+    background-image:
+        linear-gradient(
+            rgba(244, 243, 241, 0.08),
+            rgba(244, 243, 241, 0.08)
+        ),
+        url("backdrop.webp");
+
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+
     color: var(--text-dark);
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 }
 
 a {
@@ -39,49 +55,66 @@ a {
 
 .wedding-hub {
     min-height: 100vh;
-    padding: 46px 0 30px;
+    padding: 42px 0 30px;
 }
 
 .wedding-header {
     width: min(90%, 680px);
-    margin: 0 auto 34px;
+    margin: 0 auto 32px;
 }
 
 .wedding-date {
-    margin-bottom: 8px;
-    color: var(--gold);
-    font-size: 0.8rem;
+    margin-bottom: 10px;
+
+    color: var(--lavender);
+
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.17em;
+
+    letter-spacing: 0.2em;
     text-transform: uppercase;
 }
 
 .wedding-title,
 h1 {
     margin-bottom: 10px;
-    color: var(--sage-dark);
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: 500;
+
+    color: var(--text-dark);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-weight: 400;
 }
 
 .wedding-title {
     font-size: clamp(2.7rem, 9vw, 4.8rem);
-    line-height: 1;
+    line-height: 1.05;
 }
 
 .wedding-subtitle {
     margin: 0;
+
     color: var(--text-muted);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size: 1rem;
 }
 
 .wedding-menu {
-    width: min(100%, 920px);
+    width: min(100%, 820px);
 }
 
 .feature-link {
     display: block;
     height: 100%;
+
     color: inherit;
     text-decoration: none;
 }
@@ -89,13 +122,22 @@ h1 {
 .feature-card {
     display: flex;
     align-items: center;
+
     height: 100%;
-    min-height: 126px;
-    padding: 22px;
+    min-height: 112px;
+
+    padding: 18px 20px;
+
     border: 1px solid var(--border);
-    border-radius: 22px;
-    background: rgba(255, 253, 249, 0.94);
-    box-shadow: var(--shadow);
+    border-radius: 16px;
+
+    background: var(--surface);
+
+    box-shadow:
+        0 8px 24px rgba(48, 48, 47, 0.06);
+
+    backdrop-filter: blur(4px);
+
     transition:
         transform 180ms ease,
         box-shadow 180ms ease,
@@ -104,14 +146,18 @@ h1 {
 
 .feature-link:not(.feature-disabled):hover .feature-card,
 .feature-link:not(.feature-disabled):focus-visible .feature-card {
-    transform: translateY(-3px);
-    border-color: rgba(183, 154, 98, 0.42);
-    box-shadow: 0 16px 42px rgba(52, 56, 47, 0.12);
+    transform: translateY(-2px);
+
+    border-color: rgba(141, 121, 160, 0.42);
+
+    box-shadow:
+        0 12px 28px rgba(48, 48, 47, 0.1);
 }
 
 .feature-link:focus-visible {
-    border-radius: 22px;
-    outline: 3px solid rgba(120, 134, 107, 0.35);
+    border-radius: 16px;
+
+    outline: 3px solid rgba(141, 121, 160, 0.28);
     outline-offset: 3px;
 }
 
@@ -121,20 +167,28 @@ h1 {
 }
 
 .feature-disabled .feature-card {
-    opacity: 0.72;
+    opacity: 0.68;
 }
 
 .feature-icon-wrapper {
     display: grid;
-    flex: 0 0 54px;
-    width: 54px;
-    height: 54px;
-    margin-right: 17px;
+
+    flex: 0 0 50px;
+
+    width: 50px;
+    height: 50px;
+
+    margin-right: 16px;
+
     place-items: center;
+
     border-radius: 50%;
-    background: var(--sage-light);
-    color: var(--sage-dark);
-    font-size: 1.45rem;
+
+    background: rgba(141, 121, 160, 0.10);
+
+    color: var(--lavender);
+
+    font-size: 1.35rem;
 }
 
 .feature-content {
@@ -143,134 +197,189 @@ h1 {
 }
 
 .feature-content h2 {
-    margin: 0 0 5px;
+    margin: 0 0 4px;
+
     color: var(--text-dark);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.3rem;
-    font-weight: 500;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.25rem;
+    font-weight: 400;
 }
 
 .feature-content p {
     margin: 0;
+
     color: var(--text-muted);
-    font-size: 0.92rem;
-    line-height: 1.45;
+
+    font-size: 0.88rem;
+    line-height: 1.4;
 }
 
 .feature-arrow {
-    margin-left: 15px;
-    color: var(--sage);
-    font-size: 1.05rem;
+    margin-left: 14px;
+
+    color: var(--lavender);
+
+    font-size: 1rem;
 }
 
 .coming-soon {
     display: inline-block;
-    margin-top: 8px;
-    color: var(--gold);
-    font-size: 0.72rem;
+
+    margin-top: 6px;
+
+    color: var(--lavender);
+
+    font-size: 0.7rem;
     font-weight: 700;
+
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
 .wedding-footer {
-    padding: 38px 20px 0;
+    padding: 34px 20px 0;
+
     color: var(--text-muted);
 }
 
 .wedding-footer p {
     margin-bottom: 3px;
-    color: var(--sage-dark);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.1rem;
+
+    color: var(--text-dark);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.05rem;
 }
 
 .wedding-footer span {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
 }
 
-/* Seat finder */
+/* Find My Seat page */
 
 .card {
-    border-color: var(--border);
-    border-radius: 20px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    background: var(--surface);
+
+    box-shadow:
+        0 8px 24px rgba(48, 48, 47, 0.06);
+
+    backdrop-filter: blur(4px);
 }
 
 .form-control {
-    border-color: rgba(89, 101, 79, 0.22);
-    border-radius: 13px;
+    border: 1px solid rgba(116, 99, 134, 0.22);
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    color: var(--text-dark);
 }
 
 .form-control:focus {
-    border-color: var(--sage);
-    box-shadow: 0 0 0 0.2rem rgba(120, 134, 107, 0.16);
+    border-color: var(--lavender);
+
+    box-shadow:
+        0 0 0 0.2rem rgba(141, 121, 160, 0.14);
 }
 
 .list-group-item {
     border-color: var(--border);
+
+    background:
+        rgba(250, 249, 247, 0.92);
 }
 
 .list-group-item-action:hover,
 .list-group-item-action:focus {
-    background: var(--sage-light);
+    background:
+        rgba(141, 121, 160, 0.08);
 }
 
 .btn-success {
-    border-color: var(--sage);
-    background: var(--sage);
+    border-color: var(--lavender);
+
+    background: var(--lavender);
 }
 
 .btn-success:hover,
 .btn-success:focus {
-    border-color: var(--sage-dark);
-    background: var(--sage-dark);
+    border-color: var(--lavender-dark);
+
+    background: var(--lavender-dark);
 }
 
 .btn-outline-success {
-    border-color: var(--sage);
-    color: var(--sage-dark);
+    border-color: var(--lavender);
+
+    color: var(--lavender-dark);
 }
 
 .btn-outline-success:hover,
 .btn-outline-success:focus {
-    border-color: var(--sage);
-    background: var(--sage);
+    border-color: var(--lavender);
+
+    background: var(--lavender);
+
     color: #ffffff;
 }
 
 @media (max-width: 575.98px) {
+    body {
+        background-position: center top;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
     .wedding-hub {
-        padding-top: 34px;
+        padding-top: 30px;
     }
 
     .wedding-header {
-        margin-bottom: 27px;
+        margin-bottom: 24px;
     }
 
     .feature-card {
-        min-height: 116px;
-        padding: 18px;
-        border-radius: 19px;
+        min-height: 104px;
+
+        padding: 16px;
+
+        border-radius: 14px;
     }
 
     .feature-icon-wrapper {
-        flex-basis: 48px;
-        width: 48px;
-        height: 48px;
-        margin-right: 14px;
-        font-size: 1.25rem;
+        flex-basis: 46px;
+
+        width: 46px;
+        height: 46px;
+
+        margin-right: 13px;
+
+        font-size: 1.18rem;
     }
 
     .feature-content h2 {
-        font-size: 1.16rem;
+        font-size: 1.12rem;
     }
 
     .feature-content p {
-        font-size: 0.84rem;
+        font-size: 0.82rem;
     }
 
     .feature-arrow {
-        margin-left: 10px;
+        margin-left: 8px;
     }
 }
 
