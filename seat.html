@@ -5,50 +5,87 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
 
     <title>Find My Seat | Les Merigot</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="style.css">
 
 </head>
 
+
 <body>
 
-<div class="container py-5">
+<main class="container py-4 seat-page">
 
-    <div class="text-center mb-5">
 
-        <h1>Find My Seat</h1>
+    <!-- BACK TO WEDDING HUB -->
 
-        <p class="text-muted">
+    <div class="seat-navigation">
 
-            Start typing your name below
+        <a
+            href="index.html"
+            class="hub-home-link"
+        >
+            <i
+                class="bi bi-arrow-left"
+                aria-hidden="true"
+            ></i>
 
-        </p>
+            Wedding Hub
+        </a>
 
     </div>
 
+
+    <!-- PAGE HEADING -->
+
+    <header class="seat-heading">
+
+        <h1>
+            Find My Seat
+        </h1>
+
+        <p>
+            Start typing your name below
+        </p>
+
+    </header>
+
+
+    <!-- SEARCH -->
+
     <div class="row justify-content-center">
 
-        <div class="col-lg-6">
+        <div class="col-12 col-lg-6">
 
             <div class="card shadow-sm p-4">
 
                 <input
-                        id="guestSearch"
-                        type="text"
-                        class="form-control form-control-lg"
-                        placeholder="Search your name...">
+                    id="guestSearch"
+                    type="text"
+                    class="form-control form-control-lg"
+                    placeholder="Search your name..."
+                    autocomplete="off"
+                >
 
                 <div
-                        id="results"
-                        class="list-group mt-3">
-
+                    id="results"
+                    class="list-group mt-3"
+                >
                 </div>
 
             </div>
@@ -57,7 +94,9 @@
 
     </div>
 
-</div>
+
+</main>
+
 
 <script src="config.js"></script>
 <script src="seat.js"></script>

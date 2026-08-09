@@ -167,8 +167,9 @@ a {
         "Times New Roman",
         serif;
 
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
 }
 
 
@@ -435,13 +436,116 @@ a {
 
 
 /* ==================================================
-   FIND MY SEAT
+   FIND MY SEAT PAGE
 ================================================== */
 
 
-/* GENERAL HEADINGS */
+/* --------------------------------------------------
+   GENERAL
+-------------------------------------------------- */
 
-h1 {
+.seat-page {
+    width: min(100%, 900px);
+}
+
+
+/* --------------------------------------------------
+   BACK TO WEDDING HUB
+-------------------------------------------------- */
+
+.seat-navigation {
+    width: min(100%, 680px);
+
+    margin:
+        0
+        auto
+        18px;
+}
+
+
+.hub-home-link {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 14px;
+
+    color: var(--text-muted);
+
+    background: rgba(248, 247, 244, 0.82);
+
+    border-radius: 16px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 0.95rem;
+    font-weight: 400;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 5px 18px
+        rgba(48, 48, 47, 0.03);
+
+    transition:
+        background 180ms ease,
+        transform 180ms ease;
+}
+
+.hub-home-link:hover,
+.hub-home-link:focus {
+    color: var(--text-muted);
+
+    background: rgba(248, 247, 244, 0.96);
+
+    transform: translateY(-1px);
+}
+
+
+/* --------------------------------------------------
+   FIND MY SEAT HEADING
+-------------------------------------------------- */
+
+.seat-heading {
+    width: fit-content;
+    max-width: calc(100% - 24px);
+
+    margin:
+        0
+        auto
+        22px;
+
+    padding:
+        14px
+        22px
+        16px;
+
+    text-align: center;
+
+    background:
+        rgba(248, 247, 244, 0.82);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(48, 48, 47, 0.03);
+}
+
+
+.seat-heading h1 {
+    margin:
+        0
+        0
+        4px;
+
     color: var(--text-dark);
 
     font-family:
@@ -449,7 +553,26 @@ h1 {
         "Times New Roman",
         serif;
 
+    font-size: 1.8rem;
     font-weight: 400;
+
+    line-height: 1.15;
+}
+
+
+.seat-heading p {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 0.82rem;
+
+    line-height: 1.35;
 }
 
 
@@ -459,6 +582,7 @@ h1 {
 
 .card {
     border: 1px solid var(--border);
+
     border-radius: 16px;
 
     background: var(--surface);
@@ -575,6 +699,10 @@ h1 {
     }
 
 
+    /* ----------------------------------------------
+       HOMEPAGE
+    ---------------------------------------------- */
+
     .wedding-hub {
         padding-top: 30px;
     }
@@ -583,7 +711,10 @@ h1 {
     .wedding-header {
         width: calc(100% - 32px);
 
-        margin: 0 auto 24px;
+        margin:
+            0
+            auto
+            24px;
 
         padding:
             48px
@@ -592,7 +723,6 @@ h1 {
 
         border-radius: 22px;
     }
-
 
 
     .hub-brand {
@@ -659,9 +789,104 @@ h1 {
     }
 
 
+    /* ----------------------------------------------
+       FOOTER
+    ---------------------------------------------- */
+
     .wedding-footer {
-        padding-top: 28px;
+        width: fit-content;
+        max-width: calc(100% - 16px);
+
+        margin:
+            16px
+            auto
+            0;
+
+        padding:
+            11px
+            10px
+            12px;
+
+        border-radius: 16px;
     }
+
+
+    .wedding-footer p {
+        margin: 0;
+
+        font-size: clamp(
+            0.68rem,
+            2.85vw,
+            0.80rem
+        );
+
+        line-height: 1.25;
+
+        letter-spacing: -0.015em;
+
+        white-space: nowrap;
+    }
+
+
+    /* ----------------------------------------------
+       FIND MY SEAT
+    ---------------------------------------------- */
+
+    .seat-page {
+        padding-top: 20px !important;
+    }
+
+
+    .seat-navigation {
+        width: calc(100% - 8px);
+
+        margin-bottom: 14px;
+    }
+
+
+    .hub-home-link {
+        padding: 8px 12px;
+
+        font-size: 0.92rem;
+
+        letter-spacing: 0.14em;
+    }
+
+
+    .seat-heading {
+        width: fit-content;
+        max-width: calc(100% - 16px);
+
+        margin-bottom: 16px;
+
+        padding:
+            12px
+            18px
+            14px;
+
+        border-radius: 16px;
+        }
+
+
+    .seat-heading h1 {
+        font-size: 1.65rem;
+    }
+
+
+    .seat-heading p {
+        font-size: 0.78rem;
+    }
+
+
+    .card {
+        border-radius: 14px;
+    }
+
+
+    .form-control {
+        font-size: 1rem;
+    }
+
 }
 
 
@@ -677,4 +902,5 @@ h1 {
         scroll-behavior: auto !important;
         transition: none !important;
     }
+
 }
