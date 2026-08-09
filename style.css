@@ -346,7 +346,7 @@ a {
 .wedding-footer p {
     margin-bottom: 3px;
 
-    color: var(--text-dark);
+    color: var(--text-muted);
 
     font-family:
         Georgia,
