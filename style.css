@@ -361,9 +361,21 @@ a {
 -------------------------------------------------- */
 
 .wedding-footer {
-    padding: 34px 12px 0;
+    width: min(90%, 680px);
+
+    margin: 34px auto 0;
+
+    padding: 16px 12px;
 
     color: var(--text-muted);
+
+    background: rgba(248, 247, 244, 0.82);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(48, 48, 47, 0.03);
 }
 
 .wedding-footer p {
@@ -392,10 +404,13 @@ a {
 @media (max-width: 575.98px) {
 
     .wedding-footer {
-        padding:
-            28px
-            8px
-            0;
+        width: calc(100% - 32px);
+
+        margin: 28px auto 0;
+
+        padding: 14px 8px;
+
+        border-radius: 18px;
     }
 
     .wedding-footer p {
