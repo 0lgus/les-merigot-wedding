@@ -361,14 +361,13 @@ a {
 -------------------------------------------------- */
 
 .wedding-footer {
-    padding: 34px 20px 0;
+    padding: 34px 12px 0;
 
     color: var(--text-muted);
 }
 
-
 .wedding-footer p {
-    margin-bottom: 3px;
+    margin: 0;
 
     color: var(--text-muted);
 
@@ -377,12 +376,37 @@ a {
         "Times New Roman",
         serif;
 
-    font-size: 1.05rem;
-}
+    font-size: clamp(0.72rem, 2.8vw, 1.05rem);
+    line-height: 1.5;
 
+    white-space: nowrap;
+}
 
 .wedding-footer span {
     font-size: 0.80rem;
+}
+
+
+/* MOBILE FOOTER */
+
+@media (max-width: 575.98px) {
+
+    .wedding-footer {
+        padding:
+            28px
+            8px
+            0;
+    }
+
+    .wedding-footer p {
+        font-size: clamp(
+            0.70rem,
+            3vw,
+            0.82rem
+        );
+
+        letter-spacing: -0.01em;
+    }
 }
 
 
