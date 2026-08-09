@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "Scriptina";
+    src: url("https://d1mviimjnzagon.cloudfront.net/fonts/scriptina/v1/scriptina.woff2")
+         format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --background: #f4f3f1;
     --surface: rgba(250, 249, 247, 0.88);
@@ -77,15 +86,18 @@ a {
 
 .wedding-header {
     width: min(90%, 680px);
+
     margin: 0 auto 32px;
-    text-align: center;
+
+    padding-top: 45px;
 }
 
 
-/* LES MERIGOT */
+
+/* LES MERIGOT 
 
 .hub-brand {
-    margin: 0 0 10px;
+    margin: 0 0 50px;
 
     color: var(--lavender);
 
@@ -100,19 +112,16 @@ a {
 /* OLGA & BENJAMIN */
 
 .couple-title {
-    margin: 0 0 10px;
+    margin: 0 0 32px;
 
     color: var(--text-dark);
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family: "Scriptina", cursive;
 
-    font-size: clamp(2.6rem, 9vw, 4.6rem);
+    font-size: clamp(4.5rem, 15vw, 7rem);
 
     font-weight: 400;
-    line-height: 1.05;
+    line-height: 0.9;
 }
 
 
