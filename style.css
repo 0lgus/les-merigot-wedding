@@ -12,8 +12,15 @@
     --text-muted: #74716f;
 
     --border: rgba(116, 99, 134, 0.18);
-    --shadow: 0 12px 35px rgba(48, 48, 47, 0.08);
+
+    --shadow:
+        0 8px 24px rgba(48, 48, 47, 0.06);
 }
+
+
+/* --------------------------------------------------
+   GLOBAL
+-------------------------------------------------- */
 
 * {
     box-sizing: border-box;
@@ -53,31 +60,47 @@ a {
     color: inherit;
 }
 
+
+/* --------------------------------------------------
+   WEDDING HUB
+-------------------------------------------------- */
+
 .wedding-hub {
     min-height: 100vh;
     padding: 42px 0 30px;
 }
 
+
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+
 .wedding-header {
     width: min(90%, 680px);
     margin: 0 auto 32px;
+    text-align: center;
 }
 
-.wedding-date {
-    margin-bottom: 10px;
+
+/* LES MERIGOT */
+
+.hub-brand {
+    margin: 0 0 10px;
 
     color: var(--lavender);
 
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     font-weight: 700;
 
-    letter-spacing: 0.2em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
 }
 
-.wedding-title,
-h1 {
-    margin-bottom: 10px;
+
+/* OLGA & BENJAMIN */
+
+.couple-title {
+    margin: 0 0 10px;
 
     color: var(--text-dark);
 
@@ -86,13 +109,29 @@ h1 {
         "Times New Roman",
         serif;
 
-    font-weight: 400;
-}
+    font-size: clamp(2.6rem, 9vw, 4.6rem);
 
-.wedding-title {
-    font-size: clamp(2.7rem, 9vw, 4.8rem);
+    font-weight: 400;
     line-height: 1.05;
 }
+
+
+/* DATE */
+
+.wedding-date {
+    margin: 0 0 12px;
+
+    color: var(--lavender);
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+
+/* SUBTITLE */
 
 .wedding-subtitle {
     margin: 0;
@@ -105,11 +144,22 @@ h1 {
         serif;
 
     font-size: 1rem;
+    line-height: 1.5;
 }
+
+
+/* --------------------------------------------------
+   MENU
+-------------------------------------------------- */
 
 .wedding-menu {
     width: min(100%, 820px);
 }
+
+
+/* --------------------------------------------------
+   FEATURE LINKS
+-------------------------------------------------- */
 
 .feature-link {
     display: block;
@@ -118,6 +168,11 @@ h1 {
     color: inherit;
     text-decoration: none;
 }
+
+
+/* --------------------------------------------------
+   FEATURE CARDS
+-------------------------------------------------- */
 
 .feature-card {
     display: flex;
@@ -133,9 +188,9 @@ h1 {
 
     background: var(--surface);
 
-    box-shadow:
-        0 8px 24px rgba(48, 48, 47, 0.06);
+    box-shadow: var(--shadow);
 
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
 
     transition:
@@ -144,22 +199,34 @@ h1 {
         border-color 180ms ease;
 }
 
+
 .feature-link:not(.feature-disabled):hover .feature-card,
 .feature-link:not(.feature-disabled):focus-visible .feature-card {
     transform: translateY(-2px);
 
-    border-color: rgba(141, 121, 160, 0.42);
+    border-color:
+        rgba(141, 121, 160, 0.42);
 
     box-shadow:
-        0 12px 28px rgba(48, 48, 47, 0.1);
+        0 12px 28px
+        rgba(48, 48, 47, 0.10);
 }
+
 
 .feature-link:focus-visible {
     border-radius: 16px;
 
-    outline: 3px solid rgba(141, 121, 160, 0.28);
+    outline:
+        3px solid
+        rgba(141, 121, 160, 0.28);
+
     outline-offset: 3px;
 }
+
+
+/* --------------------------------------------------
+   DISABLED CARD
+-------------------------------------------------- */
 
 .feature-disabled {
     cursor: default;
@@ -169,6 +236,11 @@ h1 {
 .feature-disabled .feature-card {
     opacity: 0.68;
 }
+
+
+/* --------------------------------------------------
+   CARD ICON
+-------------------------------------------------- */
 
 .feature-icon-wrapper {
     display: grid;
@@ -184,17 +256,24 @@ h1 {
 
     border-radius: 50%;
 
-    background: rgba(141, 121, 160, 0.10);
+    background:
+        rgba(141, 121, 160, 0.10);
 
     color: var(--lavender);
 
     font-size: 1.35rem;
 }
 
+
+/* --------------------------------------------------
+   CARD CONTENT
+-------------------------------------------------- */
+
 .feature-content {
     flex: 1;
     min-width: 0;
 }
+
 
 .feature-content h2 {
     margin: 0 0 4px;
@@ -210,6 +289,7 @@ h1 {
     font-weight: 400;
 }
 
+
 .feature-content p {
     margin: 0;
 
@@ -219,6 +299,11 @@ h1 {
     line-height: 1.4;
 }
 
+
+/* --------------------------------------------------
+   ARROW
+-------------------------------------------------- */
+
 .feature-arrow {
     margin-left: 14px;
 
@@ -227,6 +312,11 @@ h1 {
     font-size: 1rem;
 }
 
+
+/* --------------------------------------------------
+   LOADING / COMING SOON
+-------------------------------------------------- */
+
 .coming-soon {
     display: inline-block;
 
@@ -234,18 +324,24 @@ h1 {
 
     color: var(--lavender);
 
-    font-size: 0.7rem;
+    font-size: 0.70rem;
     font-weight: 700;
 
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
+
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+
 .wedding-footer {
     padding: 34px 20px 0;
 
     color: var(--text-muted);
 }
+
 
 .wedding-footer p {
     margin-bottom: 3px;
@@ -260,11 +356,34 @@ h1 {
     font-size: 1.05rem;
 }
 
+
 .wedding-footer span {
-    font-size: 0.8rem;
+    font-size: 0.80rem;
 }
 
-/* Find My Seat page */
+
+/* ==================================================
+   FIND MY SEAT
+================================================== */
+
+
+/* GENERAL HEADINGS */
+
+h1 {
+    color: var(--text-dark);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-weight: 400;
+}
+
+
+/* --------------------------------------------------
+   SEAT SEARCH CARD
+-------------------------------------------------- */
 
 .card {
     border: 1px solid var(--border);
@@ -272,14 +391,22 @@ h1 {
 
     background: var(--surface);
 
-    box-shadow:
-        0 8px 24px rgba(48, 48, 47, 0.06);
+    box-shadow: var(--shadow);
 
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
 }
 
+
+/* --------------------------------------------------
+   SEARCH INPUT
+-------------------------------------------------- */
+
 .form-control {
-    border: 1px solid rgba(116, 99, 134, 0.22);
+    border:
+        1px solid
+        rgba(116, 99, 134, 0.22);
+
     border-radius: 12px;
 
     background:
@@ -288,12 +415,29 @@ h1 {
     color: var(--text-dark);
 }
 
+
+.form-control::placeholder {
+    color: #969190;
+}
+
+
 .form-control:focus {
     border-color: var(--lavender);
 
+    background:
+        rgba(255, 255, 255, 0.95);
+
     box-shadow:
-        0 0 0 0.2rem rgba(141, 121, 160, 0.14);
+        0 0 0 0.2rem
+        rgba(141, 121, 160, 0.14);
+
+    outline: none;
 }
+
+
+/* --------------------------------------------------
+   SEARCH RESULTS
+-------------------------------------------------- */
 
 .list-group-item {
     border-color: var(--border);
@@ -302,17 +446,24 @@ h1 {
         rgba(250, 249, 247, 0.92);
 }
 
+
 .list-group-item-action:hover,
 .list-group-item-action:focus {
     background:
         rgba(141, 121, 160, 0.08);
 }
 
+
+/* --------------------------------------------------
+   BUTTONS
+-------------------------------------------------- */
+
 .btn-success {
     border-color: var(--lavender);
 
     background: var(--lavender);
 }
+
 
 .btn-success:hover,
 .btn-success:focus {
@@ -321,11 +472,13 @@ h1 {
     background: var(--lavender-dark);
 }
 
+
 .btn-outline-success {
     border-color: var(--lavender);
 
     color: var(--lavender-dark);
 }
+
 
 .btn-outline-success:hover,
 .btn-outline-success:focus {
@@ -336,20 +489,57 @@ h1 {
     color: #ffffff;
 }
 
+
+/* ==================================================
+   MOBILE
+================================================== */
+
 @media (max-width: 575.98px) {
+
     body {
         background-position: center top;
         background-size: cover;
         background-attachment: scroll;
     }
 
+
     .wedding-hub {
         padding-top: 30px;
     }
 
+
     .wedding-header {
         margin-bottom: 24px;
     }
+
+
+    .hub-brand {
+        margin-bottom: 8px;
+
+        font-size: 0.68rem;
+
+        letter-spacing: 0.22em;
+    }
+
+
+    .couple-title {
+        font-size: clamp(
+            2.35rem,
+            11vw,
+            3.4rem
+        );
+    }
+
+
+    .wedding-date {
+        font-size: 0.72rem;
+    }
+
+
+    .wedding-subtitle {
+        font-size: 0.92rem;
+    }
+
 
     .feature-card {
         min-height: 104px;
@@ -358,6 +548,7 @@ h1 {
 
         border-radius: 14px;
     }
+
 
     .feature-icon-wrapper {
         flex-basis: 46px;
@@ -370,20 +561,34 @@ h1 {
         font-size: 1.18rem;
     }
 
+
     .feature-content h2 {
         font-size: 1.12rem;
     }
+
 
     .feature-content p {
         font-size: 0.82rem;
     }
 
+
     .feature-arrow {
         margin-left: 8px;
     }
+
+
+    .wedding-footer {
+        padding-top: 28px;
+    }
 }
 
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
