@@ -685,6 +685,135 @@ a {
     color: #ffffff;
 }
 
+/* --------------------------------------------------
+   INTERACTIVE SEATING MAP
+-------------------------------------------------- */
+
+.seating-map-section {
+    width: min(100%, 900px);
+
+    margin:
+        24px
+        auto
+        0;
+
+    padding: 18px;
+
+    background:
+        rgba(248, 247, 244, 0.88);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(48, 48, 47, 0.04);
+}
+
+
+.seating-map-section[hidden] {
+    display: none;
+}
+
+
+.seating-map-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+}
+
+
+.seating-map-header h2 {
+    margin: 0;
+
+    color: var(--text-dark);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.35rem;
+    font-weight: 400;
+}
+
+
+.map-close-button {
+    display: grid;
+
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    place-items: center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.72);
+
+    color: var(--lavender-dark);
+}
+
+
+.seating-map-container {
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background:
+        rgba(248, 246, 241, 0.92);
+}
+
+
+.seating-map-container svg {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    transition:
+        transform 300ms ease;
+}
+
+
+/* ACTIVE TABLE */
+
+.seating-map-container .table-group.is-active .table-shape,
+.seating-map-container .table-group.is-active .round-table {
+    fill: #f3ebf5 !important;
+
+    stroke: var(--lavender) !important;
+
+    stroke-width: 5 !important;
+}
+
+
+/* ACTIVE SEAT */
+
+.seating-map-container .seat-position.is-active .seat,
+.seating-map-container .seat-position.is-active use {
+    fill: var(--lavender) !important;
+
+    stroke: var(--lavender-dark) !important;
+
+    stroke-width: 4px !important;
+}
+
+
+.seating-map-container .seat-position.is-active .seat-label {
+    fill: #ffffff !important;
+
+    font-weight: 700 !important;
+}
 
 /* ==================================================
    MOBILE
@@ -885,6 +1014,33 @@ a {
 
     .form-control {
         font-size: 1rem;
+    }
+
+    /* ----------------------------------------------
+        SEATING MAP
+    ---------------------------------------------- */
+
+    .seating-map-section {
+        margin-top: 18px;
+
+        padding: 12px;
+
+        border-radius: 18px;
+    }
+
+
+    .seating-map-header {
+        margin-bottom: 10px;
+    }
+
+
+    .seating-map-header h2 {
+        font-size: 1.2rem;
+    }
+
+
+    .seating-map-container {
+        border-radius: 14px;
     }
 
 }

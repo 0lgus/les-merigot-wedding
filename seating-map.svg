@@ -1,0 +1,308 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1000 1400"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Olga &amp; Ben Wedding Seating Map</title>
+  <desc id="desc">Interactive-ready wedding reception seating map with tables 1 to 10, dance area, DJ stand, bar and toilets.</desc>
+
+  <style>
+    :root {
+      --ivory: #f8f6f1;
+      --warm-white: #fffdf9;
+      --sage: #78866b;
+      --sage-dark: #59654f;
+      --sage-light: #e7ebe2;
+      --gold: #b79a62;
+      --text: #34382f;
+      --muted: #70766b;
+      --line: rgba(89, 101, 79, 0.42);
+    }
+
+    .bg { fill: var(--ivory); }
+    .zone {
+      fill: rgba(255,253,249,.55);
+      stroke: var(--sage);
+      stroke-width: 3;
+      stroke-dasharray: 12 10;
+    }
+    .fixture {
+      fill: var(--sage-light);
+      stroke: var(--sage-dark);
+      stroke-width: 3;
+    }
+    .table-shape {
+      fill: var(--warm-white);
+      stroke: var(--sage-dark);
+      stroke-width: 3;
+    }
+    .seat {
+      fill: var(--warm-white);
+      stroke: var(--sage);
+      stroke-width: 2.5;
+      transition: fill .18s ease, stroke .18s ease, transform .18s ease;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .seat-label {
+      fill: var(--text);
+      font: 500 18px Georgia, "Times New Roman", serif;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      pointer-events: none;
+    }
+    .table-label {
+      fill: var(--sage-dark);
+      font: 500 30px Georgia, "Times New Roman", serif;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      pointer-events: none;
+    }
+    .fixture-label {
+      fill: var(--sage-dark);
+      font: 600 22px Arial, Helvetica, sans-serif;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      letter-spacing: .04em;
+    }
+    .dance-label {
+      fill: var(--sage-dark);
+      font: 500 28px Georgia, "Times New Roman", serif;
+      text-anchor: middle;
+    }
+    .small-label {
+      fill: var(--muted);
+      font: 500 18px Arial, Helvetica, sans-serif;
+      text-anchor: middle;
+    }
+
+    /* Classes for future website highlighting */
+    .table-group.is-active .table-shape,
+    .table-group.is-active .round-table {
+      fill: #f4ead4;
+      stroke: var(--gold);
+      stroke-width: 5;
+    }
+    .seat.is-active {
+      fill: var(--gold);
+      stroke: var(--gold);
+      transform: scale(1.12);
+    }
+    .seat.is-active + .seat-label {
+      fill: white;
+      font-weight: 700;
+    }
+  </style>
+
+  <rect class="bg" x="0" y="0" width="1000" height="1400"/>
+
+  <!-- Dance area -->
+  <g id="dance-area">
+    <rect class="zone" x="285" y="85" width="455" height="220" rx="8"/>
+    <text class="dance-label" x="512" y="205">Dance Area</text>
+  </g>
+
+  <!-- DJ stand -->
+  <g id="dj-stand">
+    <rect class="fixture" x="790" y="250" width="60" height="115" rx="6"/>
+    <circle cx="820" cy="278" r="16" fill="none" stroke="#59654f" stroke-width="3"/>
+    <circle cx="820" cy="337" r="16" fill="none" stroke="#59654f" stroke-width="3"/>
+    <circle cx="820" cy="278" r="5" fill="#59654f"/>
+    <circle cx="820" cy="337" r="5" fill="#59654f"/>
+    <circle cx="803" cy="306" r="4" fill="#59654f"/>
+    <circle cx="817" cy="306" r="4" fill="#59654f"/>
+    <circle cx="831" cy="306" r="4" fill="#59654f"/>
+    <text class="small-label" x="820" y="390">DJ</text>
+  </g>
+
+  <!-- Bar -->
+  <g id="bar">
+    <rect class="fixture" x="780" y="405" width="85" height="300" rx="6"/>
+    <text class="fixture-label" x="822.5" y="555">BAR</text>
+  </g>
+
+  <!-- Helper defs for repeated round seats -->
+  <defs>
+    <g id="seat-circle">
+      <circle class="seat" cx="0" cy="0" r="24"/>
+    </g>
+  </defs>
+
+  <!-- Round Table 8 -->
+  <g id="table-8" class="table-group">
+    <circle class="table-shape round-table" cx="145" cy="310" r="34"/>
+    <text class="table-label" x="145" y="310">8</text>
+
+    <g id="table-8-seat-4"><use href="#seat-circle" x="145" y="250"/><text class="seat-label" x="145" y="250">4</text></g>
+    <g id="table-8-seat-3"><use href="#seat-circle" x="102" y="272"/><text class="seat-label" x="102" y="272">3</text></g>
+    <g id="table-8-seat-2"><use href="#seat-circle" x="102" y="348"/><text class="seat-label" x="102" y="348">2</text></g>
+    <g id="table-8-seat-1"><use href="#seat-circle" x="145" y="370"/><text class="seat-label" x="145" y="370">1</text></g>
+    <g id="table-8-seat-6"><use href="#seat-circle" x="188" y="348"/><text class="seat-label" x="188" y="348">6</text></g>
+    <g id="table-8-seat-5"><use href="#seat-circle" x="188" y="272"/><text class="seat-label" x="188" y="272">5</text></g>
+  </g>
+
+  <!-- Round Table 7 -->
+  <g id="table-7" class="table-group">
+    <circle class="table-shape round-table" cx="145" cy="525" r="34"/>
+    <text class="table-label" x="145" y="525">7</text>
+
+    <g id="table-7-seat-4"><use href="#seat-circle" x="145" y="465"/><text class="seat-label" x="145" y="465">4</text></g>
+    <g id="table-7-seat-3"><use href="#seat-circle" x="102" y="487"/><text class="seat-label" x="102" y="487">3</text></g>
+    <g id="table-7-seat-2"><use href="#seat-circle" x="102" y="563"/><text class="seat-label" x="102" y="563">2</text></g>
+    <g id="table-7-seat-1"><use href="#seat-circle" x="145" y="585"/><text class="seat-label" x="145" y="585">1</text></g>
+    <g id="table-7-seat-6"><use href="#seat-circle" x="188" y="563"/><text class="seat-label" x="188" y="563">6</text></g>
+    <g id="table-7-seat-5"><use href="#seat-circle" x="188" y="487"/><text class="seat-label" x="188" y="487">5</text></g>
+  </g>
+
+  <!-- Round Table 6 -->
+  <g id="table-6" class="table-group">
+    <circle class="table-shape round-table" cx="145" cy="740" r="34"/>
+    <text class="table-label" x="145" y="740">6</text>
+
+    <g id="table-6-seat-4"><use href="#seat-circle" x="145" y="680"/><text class="seat-label" x="145" y="680">4</text></g>
+    <g id="table-6-seat-3"><use href="#seat-circle" x="102" y="702"/><text class="seat-label" x="102" y="702">3</text></g>
+    <g id="table-6-seat-2"><use href="#seat-circle" x="102" y="778"/><text class="seat-label" x="102" y="778">2</text></g>
+    <g id="table-6-seat-1"><use href="#seat-circle" x="145" y="800"/><text class="seat-label" x="145" y="800">1</text></g>
+    <g id="table-6-seat-6"><use href="#seat-circle" x="188" y="778"/><text class="seat-label" x="188" y="778">6</text></g>
+    <g id="table-6-seat-5"><use href="#seat-circle" x="188" y="702"/><text class="seat-label" x="188" y="702">5</text></g>
+  </g>
+
+  <!-- Round Table 5 -->
+  <g id="table-5" class="table-group">
+    <circle class="table-shape round-table" cx="145" cy="955" r="34"/>
+    <text class="table-label" x="145" y="955">5</text>
+
+    <g id="table-5-seat-4"><use href="#seat-circle" x="145" y="895"/><text class="seat-label" x="145" y="895">4</text></g>
+    <g id="table-5-seat-3"><use href="#seat-circle" x="102" y="917"/><text class="seat-label" x="102" y="917">3</text></g>
+    <g id="table-5-seat-2"><use href="#seat-circle" x="102" y="993"/><text class="seat-label" x="102" y="993">2</text></g>
+    <g id="table-5-seat-1"><use href="#seat-circle" x="145" y="1015"/><text class="seat-label" x="145" y="1015">1</text></g>
+    <g id="table-5-seat-6"><use href="#seat-circle" x="188" y="993"/><text class="seat-label" x="188" y="993">6</text></g>
+    <g id="table-5-seat-5"><use href="#seat-circle" x="188" y="917"/><text class="seat-label" x="188" y="917">5</text></g>
+  </g>
+
+  <!-- Table 9 -->
+  <g id="table-9" class="table-group">
+    <rect class="table-shape" x="335" y="310" width="55" height="390" rx="5"/>
+    <text class="table-label" x="362.5" y="505">9</text>
+
+    <g id="table-9-seat-7"><circle class="seat" cx="305" cy="345" r="22"/><text class="seat-label" x="305" y="345">7</text></g>
+    <g id="table-9-seat-6"><circle class="seat" cx="305" cy="400" r="22"/><text class="seat-label" x="305" y="400">6</text></g>
+    <g id="table-9-seat-5"><circle class="seat" cx="305" cy="455" r="22"/><text class="seat-label" x="305" y="455">5</text></g>
+    <g id="table-9-seat-4"><circle class="seat" cx="305" cy="510" r="22"/><text class="seat-label" x="305" y="510">4</text></g>
+    <g id="table-9-seat-3"><circle class="seat" cx="305" cy="565" r="22"/><text class="seat-label" x="305" y="565">3</text></g>
+    <g id="table-9-seat-2"><circle class="seat" cx="305" cy="620" r="22"/><text class="seat-label" x="305" y="620">2</text></g>
+    <g id="table-9-seat-1"><circle class="seat" cx="305" cy="675" r="22"/><text class="seat-label" x="305" y="675">1</text></g>
+
+    <g id="table-9-seat-8"><circle class="seat" cx="420" cy="345" r="22"/><text class="seat-label" x="420" y="345">8</text></g>
+    <g id="table-9-seat-9"><circle class="seat" cx="420" cy="400" r="22"/><text class="seat-label" x="420" y="400">9</text></g>
+    <g id="table-9-seat-10"><circle class="seat" cx="420" cy="455" r="22"/><text class="seat-label" x="420" y="455">10</text></g>
+    <g id="table-9-seat-11"><circle class="seat" cx="420" cy="510" r="22"/><text class="seat-label" x="420" y="510">11</text></g>
+    <g id="table-9-seat-12"><circle class="seat" cx="420" cy="565" r="22"/><text class="seat-label" x="420" y="565">12</text></g>
+    <g id="table-9-seat-13"><circle class="seat" cx="420" cy="620" r="22"/><text class="seat-label" x="420" y="620">13</text></g>
+    <g id="table-9-seat-14"><circle class="seat" cx="420" cy="675" r="22"/><text class="seat-label" x="420" y="675">14</text></g>
+  </g>
+
+  <!-- Table 10 -->
+  <g id="table-10" class="table-group">
+    <rect class="table-shape" x="545" y="310" width="55" height="390" rx="5"/>
+    <text class="table-label" x="572.5" y="505">10</text>
+
+    <g id="table-10-seat-7"><circle class="seat" cx="515" cy="345" r="22"/><text class="seat-label" x="515" y="345">7</text></g>
+    <g id="table-10-seat-6"><circle class="seat" cx="515" cy="400" r="22"/><text class="seat-label" x="515" y="400">6</text></g>
+    <g id="table-10-seat-5"><circle class="seat" cx="515" cy="455" r="22"/><text class="seat-label" x="515" y="455">5</text></g>
+    <g id="table-10-seat-4"><circle class="seat" cx="515" cy="510" r="22"/><text class="seat-label" x="515" y="510">4</text></g>
+    <g id="table-10-seat-3"><circle class="seat" cx="515" cy="565" r="22"/><text class="seat-label" x="515" y="565">3</text></g>
+    <g id="table-10-seat-2"><circle class="seat" cx="515" cy="620" r="22"/><text class="seat-label" x="515" y="620">2</text></g>
+    <g id="table-10-seat-1"><circle class="seat" cx="515" cy="675" r="22"/><text class="seat-label" x="515" y="675">1</text></g>
+
+    <g id="table-10-seat-8"><circle class="seat" cx="630" cy="345" r="22"/><text class="seat-label" x="630" y="345">8</text></g>
+    <g id="table-10-seat-9"><circle class="seat" cx="630" cy="400" r="22"/><text class="seat-label" x="630" y="400">9</text></g>
+    <g id="table-10-seat-10"><circle class="seat" cx="630" cy="455" r="22"/><text class="seat-label" x="630" y="455">10</text></g>
+    <g id="table-10-seat-11"><circle class="seat" cx="630" cy="510" r="22"/><text class="seat-label" x="630" y="510">11</text></g>
+    <g id="table-10-seat-12"><circle class="seat" cx="630" cy="565" r="22"/><text class="seat-label" x="630" y="565">12</text></g>
+    <g id="table-10-seat-13"><circle class="seat" cx="630" cy="620" r="22"/><text class="seat-label" x="630" y="620">13</text></g>
+    <g id="table-10-seat-14"><circle class="seat" cx="630" cy="675" r="22"/><text class="seat-label" x="630" y="675">14</text></g>
+  </g>
+
+  <!-- Table 2 -->
+  <g id="table-2" class="table-group">
+    <rect class="table-shape" x="300" y="755" width="48" height="205" rx="5"/>
+    <text class="table-label" x="324" y="858">2</text>
+
+    <g id="table-2-seat-4"><circle class="seat" cx="275" cy="780" r="20"/><text class="seat-label" x="275" y="780">4</text></g>
+    <g id="table-2-seat-3"><circle class="seat" cx="275" cy="830" r="20"/><text class="seat-label" x="275" y="830">3</text></g>
+    <g id="table-2-seat-2"><circle class="seat" cx="275" cy="880" r="20"/><text class="seat-label" x="275" y="880">2</text></g>
+    <g id="table-2-seat-1"><circle class="seat" cx="275" cy="930" r="20"/><text class="seat-label" x="275" y="930">1</text></g>
+
+    <g id="table-2-seat-5"><circle class="seat" cx="373" cy="780" r="20"/><text class="seat-label" x="373" y="780">5</text></g>
+    <g id="table-2-seat-6"><circle class="seat" cx="373" cy="830" r="20"/><text class="seat-label" x="373" y="830">6</text></g>
+    <g id="table-2-seat-7"><circle class="seat" cx="373" cy="880" r="20"/><text class="seat-label" x="373" y="880">7</text></g>
+    <g id="table-2-seat-8"><circle class="seat" cx="373" cy="930" r="20"/><text class="seat-label" x="373" y="930">8</text></g>
+  </g>
+
+  <!-- Table 3 -->
+  <g id="table-3" class="table-group">
+    <rect class="table-shape" x="465" y="755" width="48" height="205" rx="5"/>
+    <text class="table-label" x="489" y="858">3</text>
+
+    <g id="table-3-seat-4"><circle class="seat" cx="440" cy="780" r="20"/><text class="seat-label" x="440" y="780">4</text></g>
+    <g id="table-3-seat-3"><circle class="seat" cx="440" cy="830" r="20"/><text class="seat-label" x="440" y="830">3</text></g>
+    <g id="table-3-seat-2"><circle class="seat" cx="440" cy="880" r="20"/><text class="seat-label" x="440" y="880">2</text></g>
+    <g id="table-3-seat-1"><circle class="seat" cx="440" cy="930" r="20"/><text class="seat-label" x="440" y="930">1</text></g>
+
+    <g id="table-3-seat-5"><circle class="seat" cx="538" cy="780" r="20"/><text class="seat-label" x="538" y="780">5</text></g>
+    <g id="table-3-seat-6"><circle class="seat" cx="538" cy="830" r="20"/><text class="seat-label" x="538" y="830">6</text></g>
+    <g id="table-3-seat-7"><circle class="seat" cx="538" cy="880" r="20"/><text class="seat-label" x="538" y="880">7</text></g>
+    <g id="table-3-seat-8"><circle class="seat" cx="538" cy="930" r="20"/><text class="seat-label" x="538" y="930">8</text></g>
+  </g>
+
+  <!-- Table 4 -->
+  <g id="table-4" class="table-group">
+    <rect class="table-shape" x="630" y="755" width="48" height="205" rx="5"/>
+    <text class="table-label" x="654" y="858">4</text>
+
+    <g id="table-4-seat-4"><circle class="seat" cx="605" cy="780" r="20"/><text class="seat-label" x="605" y="780">4</text></g>
+    <g id="table-4-seat-3"><circle class="seat" cx="605" cy="830" r="20"/><text class="seat-label" x="605" y="830">3</text></g>
+    <g id="table-4-seat-2"><circle class="seat" cx="605" cy="880" r="20"/><text class="seat-label" x="605" y="880">2</text></g>
+    <g id="table-4-seat-1"><circle class="seat" cx="605" cy="930" r="20"/><text class="seat-label" x="605" y="930">1</text></g>
+
+    <g id="table-4-seat-5"><circle class="seat" cx="703" cy="780" r="20"/><text class="seat-label" x="703" y="780">5</text></g>
+    <g id="table-4-seat-6"><circle class="seat" cx="703" cy="830" r="20"/><text class="seat-label" x="703" y="830">6</text></g>
+    <g id="table-4-seat-7"><circle class="seat" cx="703" cy="880" r="20"/><text class="seat-label" x="703" y="880">7</text></g>
+    <g id="table-4-seat-8"><circle class="seat" cx="703" cy="930" r="20"/><text class="seat-label" x="703" y="930">8</text></g>
+  </g>
+
+  <!-- Table 1 -->
+  <g id="table-1" class="table-group">
+    <rect class="table-shape" x="250" y="1040" width="470" height="48" rx="5"/>
+    <text class="table-label" x="485" y="1064">1</text>
+
+    <!-- Top seats 1-9 -->
+    <g id="table-1-seat-1"><circle class="seat" cx="275" cy="1015" r="19"/><text class="seat-label" x="275" y="1015">1</text></g>
+    <g id="table-1-seat-2"><circle class="seat" cx="327" cy="1015" r="19"/><text class="seat-label" x="327" y="1015">2</text></g>
+    <g id="table-1-seat-3"><circle class="seat" cx="379" cy="1015" r="19"/><text class="seat-label" x="379" y="1015">3</text></g>
+    <g id="table-1-seat-4"><circle class="seat" cx="431" cy="1015" r="19"/><text class="seat-label" x="431" y="1015">4</text></g>
+    <g id="table-1-seat-5"><circle class="seat" cx="483" cy="1015" r="19"/><text class="seat-label" x="483" y="1015">5</text></g>
+    <g id="table-1-seat-6"><circle class="seat" cx="535" cy="1015" r="19"/><text class="seat-label" x="535" y="1015">6</text></g>
+    <g id="table-1-seat-7"><circle class="seat" cx="587" cy="1015" r="19"/><text class="seat-label" x="587" y="1015">7</text></g>
+    <g id="table-1-seat-8"><circle class="seat" cx="639" cy="1015" r="19"/><text class="seat-label" x="639" y="1015">8</text></g>
+    <g id="table-1-seat-9"><circle class="seat" cx="691" cy="1015" r="19"/><text class="seat-label" x="691" y="1015">9</text></g>
+
+    <!-- Bottom seats 18-10 -->
+    <g id="table-1-seat-18"><circle class="seat" cx="275" cy="1113" r="19"/><text class="seat-label" x="275" y="1113">18</text></g>
+    <g id="table-1-seat-17"><circle class="seat" cx="327" cy="1113" r="19"/><text class="seat-label" x="327" y="1113">17</text></g>
+    <g id="table-1-seat-16"><circle class="seat" cx="379" cy="1113" r="19"/><text class="seat-label" x="379" y="1113">16</text></g>
+    <g id="table-1-seat-15"><circle class="seat" cx="431" cy="1113" r="19"/><text class="seat-label" x="431" y="1113">15</text></g>
+    <g id="table-1-seat-14"><circle class="seat" cx="483" cy="1113" r="19"/><text class="seat-label" x="483" y="1113">14</text></g>
+    <g id="table-1-seat-13"><circle class="seat" cx="535" cy="1113" r="19"/><text class="seat-label" x="535" y="1113">13</text></g>
+    <g id="table-1-seat-12"><circle class="seat" cx="587" cy="1113" r="19"/><text class="seat-label" x="587" y="1113">12</text></g>
+    <g id="table-1-seat-11"><circle class="seat" cx="639" cy="1113" r="19"/><text class="seat-label" x="639" y="1113">11</text></g>
+    <g id="table-1-seat-10"><circle class="seat" cx="691" cy="1113" r="19"/><text class="seat-label" x="691" y="1113">10</text></g>
+  </g>
+
+  <!-- Toilets -->
+  <g id="toilets">
+    <rect class="fixture" x="760" y="1190" width="120" height="74" rx="10"/>
+    <text class="fixture-label" x="820" y="1218">WC</text>
+    <text class="small-label" x="820" y="1245">Toilets</text>
+  </g>
+</svg>
