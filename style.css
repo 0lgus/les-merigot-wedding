@@ -145,7 +145,7 @@ a {
 .fonts-loaded .couple-title {
     opacity: 1;
 
-    transition: opacity 180ms ease;
+    /* transition: opacity 180ms ease;*/
 }
 
 
@@ -873,17 +873,22 @@ a {
 
 
     .couple-title {
+
+        display: inline-block;
+
         font-size: clamp(
             3rem,
             13vw,
             4.2rem
         );
-        line-height: 1.2;
+        line-height: 1.35;
 
         padding:
-            12px
-            0
-            16px;
+            20px
+            8px
+            26px;
+
+        overflow: visible;
     }
 
 
