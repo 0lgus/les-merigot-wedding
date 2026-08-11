@@ -874,10 +874,16 @@ a {
 
     .couple-title {
         font-size: clamp(
-            2.35rem,
-            11vw,
-            3.4rem
+            3rem,
+            13vw,
+            4.2rem
         );
+        line-height: 1.2;
+
+        padding:
+            12px
+            0
+            16px;
     }
 
 
