@@ -30,7 +30,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Italianno&display=swap"
         rel="stylesheet"
-    >   
+    > 
+    <link
+        rel="preload"
+        href="https://d1mviimjnzagon.cloudfront.net/fonts/scriptina/v1/scriptina.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin
+    >  
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -270,6 +278,12 @@
 
 <script src="config.js"></script>
 <script src="app.js"></script>
+
+<script>
+    document.fonts.load('1em "Scriptina"').then(() => {
+        document.documentElement.classList.add("fonts-loaded");
+    });
+</script>
 
 </body>
 </html>
