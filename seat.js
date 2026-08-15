@@ -313,7 +313,7 @@ function displayGuestDetails(guest) {
         );
 
 
-    if (!tableNumber || !seatNumber) {
+    if (!tableNumber) {
         showSeatButton.disabled = true;
 
         showSeatButton.textContent =
@@ -357,7 +357,7 @@ async function showGuestSeat(
     tableNumber,
     seatNumber
 ) {
-    if (!tableNumber || !seatNumber) {
+    if (!tableNumber) {
         return;
     }
 
@@ -373,8 +373,9 @@ async function showGuestSeat(
             `table-${tableNumber}`;
 
         const seatId =
-            `table-${tableNumber}-seat-${seatNumber}`;
-
+            seatNumber
+                ? `table-${tableNumber}-seat-${seatNumber}`
+                : null;
 
         const tableElement =
             seatingMapContainer
@@ -383,10 +384,11 @@ async function showGuestSeat(
                 );
 
         const seatElement =
-            seatingMapContainer
-                .querySelector(
+            seatId
+                ? seatingMapContainer.querySelector(
                     `#${CSS.escape(seatId)}`
-                );
+                )
+                : null;
 
 
         if (!tableElement) {
@@ -406,7 +408,7 @@ async function showGuestSeat(
                 "seat-position",
                 "is-active"
             );
-        } else {
+        } else if (seatNumber) {
             console.warn(
                 `Seat not found in SVG: ${seatId}`
             );
